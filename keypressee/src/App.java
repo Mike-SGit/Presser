@@ -23,8 +23,7 @@ public class App {
         GlobalScreen.addNativeKeyListener(keylis);
        
 
-        // try{  aaa    
-
+        // try{      
         //     Socket s=new Socket("localhost",6666);  
         //     DataOutputStream dout=new DataOutputStream(s.getOutputStream());  
         //     dout.writeUTF("Hello Server");  

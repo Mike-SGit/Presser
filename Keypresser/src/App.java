@@ -7,7 +7,7 @@ public class App {
     public static void main(String[] args) throws Exception {
         System.out.println("Hello, World!");
         int count = 0;
-        Robot r = new Robot();
+        // Robot r = new Robot();
 
         while(count < 5){
             try{  
@@ -16,16 +16,28 @@ public class App {
                 DataInputStream dis=new DataInputStream(s.getInputStream());  
                 String  str=(String)dis.readUTF();  
                 System.out.println("message= "+str);
-                r.keyPress(KeyEvent.VK_A);
-                r.keyRelease(KeyEvent.VK_A);  
+
+
+                int keyCode = KeyEvent.getExtendedKeyCodeForChar(str.charAt(0));
+                Robot r = new Robot();
+                if (str.charAt(0) == 'A'){
+                    r.keyPress(KeyEvent.VK_A);
+                    r.keyRelease(KeyEvent.VK_A);
+                }
+                if (str.charAt(0) == 'B'){
+                    r.keyPress(KeyEvent.VK_B);
+                    r.keyRelease(KeyEvent.VK_B);
+                }
+                
+                // r.keyPress(keyCode);
+                // r.keyRelease(keyCode);  
                 ss.close();  
-                }catch(Exception e){System.out.println(e);}  
+                } catch(Exception e){
+                    System.out.println(e);
+                }  
                 
-                
-            
-            
+                count++;
             }  
-            count++;
 
         }
             
